@@ -1,0 +1,287 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>উপজেলার তথ্য ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/upazilla/chakKaFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+                                                             
+                                    <div class="form-group">
+                                        <label for="name" class="col-md-3 control-label">কৃষকের নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="name" placeholder="কৃষকের নাম">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="moshur" class="col control-label">মসুর প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="moshur" placeholder="মসুর প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="moshurAbadi" class="col control-label">মসুর আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="moshurAbadi" placeholder="মসুর আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="mug" class="col control-label">মুগ প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="mug" placeholder="মুগ প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mugAbadi" class="col control-label">মুগ আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="mugAbadi" placeholder="মুগ আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="mashkolai" class="col control-label">মাসকলাই প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="mashkolai" placeholder="মাসকলাই প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mashkolaiAbadi" class="col control-label">মাসকলাই আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="mashkolaiAbadi" placeholder="মাসকলাই আবাদী এলাকা">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="kheshari" class="col control-label">খেসারি প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="kheshari" placeholder="খেসারি প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kheshariAbadi" class="col control-label">খেসারি আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="kheshariAbadi" placeholder="খেসারি আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="felon" class="col control-label">ফেলন প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="felon" placeholder="ফেলন প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="felonAbadi" class="col control-label">ফেলন আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="felonAbadi" placeholder="ফেলন আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="arohor" class="col control-label">অড়হর প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="arohor" placeholder="অড়হর প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="arohorAbadi" class="col control-label">অড়হর আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="arohorAbadi" placeholder="অড়হর আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="shorisha" class="col control-label">সরিষা প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="shorisha" placeholder="সরিষা প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="shorishaAbadi" class="col control-label">সরিষা আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="shorishaAbadi" placeholder="সরিষা আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="til" class="col control-label">তিল প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="til" placeholder="তিল প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="tilAbadi" class="col control-label">তিল আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="tilAbadi" placeholder="তিল আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="soyabean" class="col control-label">সয়াবিন প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="soyabean" placeholder="সয়াবিন প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="soyabeanAbadi" class="col control-label">সয়াবিন আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="soyabeanAbadi" placeholder="সয়াবিন আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="chinabadam" class="col control-label">চিনাবাদাম প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="chinabadam" placeholder="চিনাবাদাম প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="chinabadamAbadi" class="col control-label">চিনাবাদাম আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="chinabadamAbadi" placeholder="চিনাবাদাম আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="sunflower" class="col control-label">সূর্যমুখী প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="sunflower" placeholder="সূর্যমুখী প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="sunflowerAbadi" class="col control-label">সূর্যমুখী আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="sunflowerAbadi" placeholder="সূর্যমুখী আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="onion" class="col control-label">পেঁয়াজ প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="onion" placeholder="পেঁয়াজ প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="onionAbadi" class="col control-label">পেঁয়াজ আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="onionAbadi" placeholder="পেঁয়াজ আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="roshun" class="col control-label">রসুন প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="roshun" placeholder="রসুন প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="roshunAbadi" class="col control-label">রসুন আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="roshunAbadi" placeholder="রসুন আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="holud" class="col control-label">হলুদ প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="holud" placeholder="হলুদ প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="holudAbadi" class="col control-label">হলুদ আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="holudAbadi" placeholder="হলুদ আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="morich" class="col control-label">মরিচ প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="morich" placeholder="মরিচ প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="morichAbadi" class="col control-label">মরিচ আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="morichAbadi" placeholder="মরিচ আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="ada" class="col control-label">আদা প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="ada" placeholder="আদা প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="adaAbadi" class="col control-label">আদা আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="adaAbadi" placeholder="আদা আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="dhonia" class="col control-label">ধনিয়া প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="dhonia" placeholder="ধনিয়া প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="dhoniaAbadi" class="col control-label">ধনিয়া আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="dhoniaAbadi" placeholder="ধনিয়া আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="kalojira" class="col control-label">কালোজিরা প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="kalojira" placeholder="কালোজিরা প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kalojiraAbadi" class="col control-label">কালোজিরা আবাদী এলাকা</label>
+                                        <input type="number" class="form-control" name="kalojiraAbadi" placeholder="কালোজিরা আবাদী এলাকা">
+                                        </div>
+                                    </div> 
+
+
+
+
+                                    <div class="form-group">
+                                        <label for="bikolpo" class="col-md-3 control-label">বিকল্প প্রদর্শনীর নাম</label>
+                                        <div class="col-md-9">
+                                        <input type="text" class="form-control" name="bikolpo" placeholder="বিকল্প প্রদর্শনীর নাম">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="comment" class="col-md-3 control-label">মন্তব্য</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="comment" placeholder="মন্তব্য">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="year">বছর :</label>
+                                        <select id="year" name="year" required>
+                                            <option value="2017">২০১৭-১৮</option>
+                                            <option value="2018">২০১৮-১৯</option>
+                                            <option value="2019">২০১৯-২০</option>
+                                            <option value="2020">২০২০-২১</option>
+                                            <option value="2021">২০২১-২২</option>
+                                            <option value="2022">২০২২-২৩</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                        <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                    
+                                    
+                                    
+                                        <input type="number" class="form-control" name="dd" placeholder="id" value="<%= upazillas.dd_id %>">
+                                        
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

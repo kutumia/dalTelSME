@@ -1,0 +1,352 @@
+<%if (records.length >0){ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <th>উপজেলার নাম</th>
+        <th>এসএমইর সংখ্যাঃ</th>
+        <th>ফসলের নাম ও জাত</th>
+        <th>ব্লক প্রদর্শনীর সংখ্যাঃ</th>
+        <th>বিক্রয়কৃত বীজের পরিমাণ (কেজি)</th>
+        <th>বীজের মূল্য</th>
+        <th>মন্তব্য</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <% upazillas.forEach(function(rows){ %>
+                    <%if (row.upazilla_id == rows.4id){ %>
+                        <td><%= rows.upazilla %></td>
+                        <% } %>
+                    <% }) %>
+
+                <td><%= row.number %></td>
+                <td>
+                <%if (row.moshur === ""){ %>
+                <% }else{ %>
+                    মসুর, <%= row.moshur %><br><br>
+                <% } %>
+                <%if (row.mug === ""){ %>
+                <% }else{ %>
+                    মুগ, <%= row.mug %><br><br>
+                <% } %>                                      
+                <%if (row.mashkolai === ""){ %>
+                    <% }else{ %>
+                        মাসকলাই, <%= row.mashkolai %> <br><br>
+                    <% } %>
+                <%if (row.kheshari === ""){ %>
+                <% }else{ %>
+                    খেসারি, <%= row.kheshari %> <br><br>
+                <% } %>
+                <%if (row.felon === ""){ %>
+                <% }else{ %>
+                    ফেলন, <%= row.felon %> <br><br>
+                <% } %>
+                <%if (row.arohor === ""){ %>
+                <% }else{ %>
+                    অড়হর, <%= row.arohor %> <br><br>
+                <% } %>
+                <%if (row.shorisha === ""){ %>
+                <% }else{ %>
+                    সরিষা, <%= row.shorisha %> <br><br>
+                <% } %>    
+                <%if (row.til === ""){ %>
+                <% }else{ %>
+                    তিল, <%= row.til %> <br><br>
+                <% } %>
+                <%if (row.soyabean === ""){ %>
+                <% }else{ %>
+                সয়াবিন, <%= row.soyabean %> <br><br>
+                <% } %>
+                <%if (row.chinabadam === ""){ %>
+                <% }else{ %>
+                    চিনাবাদাম, <%= row.chinabadam %> <br><br>
+                <% } %>
+                <%if (row.sunflower === ""){ %>
+                <% }else{ %>
+                    সূর্যমুখী, <%= row.sunflower %> <br><br>
+                <% } %>
+                <%if (row.onion === ""){ %>
+                <% }else{ %>
+                    পেঁয়াজ, <%= row.onion %> <br><br>
+                <% } %>
+                <%if (row.roshun === ""){ %>
+                <% }else{ %>
+                    রসুন, <%= row.roshun %> <br><br>
+                <% } %>
+                <%if (row.holud === ""){ %>
+                    <% }else{ %>
+                        হলুদ, <%= row.holud %><br><br>
+                    <% } %>
+                <%if (row.morich === ""){ %>
+                <% }else{ %>
+                    মরিচ, <%= row.morich %><br><br>
+                <% } %>
+                <%if (row.ada === ""){ %>
+                    <% }else{ %>
+                        আদা, <%= row.ada %><br><br>
+                    <% } %>
+                <%if (row.dhonia === ""){ %>
+                <% }else{ %>
+                    ধনিয়া, <%= row.dhonia %><br><br>
+                <% } %>
+                <%if (row.kalojira === ""){ %>
+                <% }else{ %>
+                    কালোজিরা, <%= row.kalojira %><br><br>
+                <% } %>
+
+                </td>
+                
+                <td>
+                    <%if (row.moshurBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.moshurBlock %> <br><br>
+                    <% } %>
+                    <%if (row.mugBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.mugBlock %> <br><br>
+                    <% } %>
+                    <%if (row.mashkolaiBlock === 0){ %>
+                        <% }else{ %>
+                        <%= row.mashkolaiBlock %> <br><br>
+                        <% } %>
+                    <%if (row.kheshariBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.kheshariBlock %> <br><br>
+                    <% } %>
+                    <%if (row.felonBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.felonBlock %> <br><br>
+                    <% } %>
+                    <%if (row.arohorBlock === 0){ %>
+                        <% }else{ %>
+                        <%= row.arohorBlock %> <br><br>
+                        <% } %>
+                        <%if (row.shorishaBlock === 0){ %>
+                            <% }else{ %>
+                            <%= row.shorishaBlock %> <br><br>
+                            <% } %>
+                            <%if (row.tilBlock === 0){ %>
+                                <% }else{ %>
+                                <%= row.tilBlock %> <br><br>
+                                <% } %>
+                    <%if (row.soyabeanBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.soyabeanBlock %> <br><br>
+                    <% } %>
+                    <%if (row.chinabadamBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.chinabadamBlock %> <br><br>
+                    <% } %>
+                    <%if (row.sunflowerBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.sunflowerBlock %> <br><br>
+                    <% } %>
+                    <%if (row.onionBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.onionBlock %> <br><br>
+                    <% } %>
+                    <%if (row.roshunBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.roshunBlock %> <br><br>
+                    <% } %>
+                    <%if (row.holudBlock === 0){ %>
+                        <% }else{ %>
+                        <%= row.holudBlock %> <br><br>
+                        <% } %>
+                    <%if (row.morichBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.morichBlock %> <br><br>
+                    <% } %>
+                    <%if (row.adaBlock === 0){ %>
+                        <% }else{ %>
+                        <%= row.adaBlock %> <br><br>
+                        <% } %>
+                    <%if (row.dhoniaBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.dhoniaBlock %> <br><br>
+                    <% } %>
+                    <%if (row.kalojiraBlock === 0){ %>
+                    <% }else{ %>
+                    <%= row.kalojiraBlock %> <br><br>
+                    <% } %>
+                </td>
+
+                <td>
+                <%if (row.moshurAmount === 0){ %>
+                <% }else{ %>
+                <%= row.moshurAmount %> <br><br>
+                <% } %>
+                <%if (row.mugAmount === 0){ %>
+                <% }else{ %>
+                <%= row.mugAmount %> <br><br>
+                <% } %>
+                <%if (row.mashkolaiAmount === 0){ %>
+                    <% }else{ %>
+                    <%= row.mashkolaiAmount %> <br><br>
+                    <% } %>
+                <%if (row.kheshariAmount === 0){ %>
+                <% }else{ %>
+                <%= row.kheshariAmount %> <br><br>
+                <% } %>
+                <%if (row.felonAmount === 0){ %>
+                <% }else{ %>
+                <%= row.felonAmount %> <br><br>
+                <% } %>
+                <%if (row.arohorAmount === 0){ %>
+                    <% }else{ %>
+                    <%= row.arohorAmount %> <br><br>
+                    <% } %>
+                    <%if (row.shorishaAmount === 0){ %>
+                        <% }else{ %>
+                        <%= row.shorishaAmount %> <br><br>
+                        <% } %>
+                        <%if (row.tilAmount === 0){ %>
+                            <% }else{ %>
+                            <%= row.tilAmount %> <br><br>
+                            <% } %>
+                <%if (row.soyabeanAmount === 0){ %>
+                <% }else{ %>
+                <%= row.soyabeanAmount %> <br><br>
+                <% } %>
+                <%if (row.chinabadamAmount === 0){ %>
+                <% }else{ %>
+                <%= row.chinabadamAmount %> <br><br>
+                <% } %>
+                <%if (row.sunflowerAmount === 0){ %>
+                <% }else{ %>
+                <%= row.sunflowerAmount %> <br><br>
+                <% } %>
+                <%if (row.onionAmount === 0){ %>
+                <% }else{ %>
+                <%= row.onionAmount %> <br><br>
+                <% } %>
+                <%if (row.roshunAmount === 0){ %>
+                <% }else{ %>
+                <%= row.roshunAmount %> <br><br>
+                <% } %>
+                <%if (row.holudAmount === 0){ %>
+                    <% }else{ %>
+                    <%= row.holudAmount %> <br><br>
+                    <% } %>
+                <%if (row.morichAmount === 0){ %>
+                <% }else{ %>
+                <%= row.morichAmount %> <br><br>
+                <% } %>
+                <%if (row.adaAmount === 0){ %>
+                    <% }else{ %>
+                    <%= row.adaAmount %> <br><br>
+                    <% } %>
+                <%if (row.dhoniaAmount === 0){ %>
+                <% }else{ %>
+                <%= row.dhoniaAmount %> <br><br>
+                <% } %>
+                <%if (row.kalojiraAmount === 0){ %>
+                <% }else{ %>
+                <%= row.kalojiraAmount %> <br><br>
+                <% } %>
+            </td>
+
+            <td>
+                <%if (row.moshurSale === 0){ %>
+                <% }else{ %>
+                <%= row.moshurSale %> <br><br>
+                <% } %>
+                <%if (row.mugSale === 0){ %>
+                <% }else{ %>
+                <%= row.mugSale %> <br><br>
+                <% } %>
+                <%if (row.mashkolaiSale === 0){ %>
+                    <% }else{ %>
+                    <%= row.mashkolaiSale %> <br><br>
+                    <% } %>
+                <%if (row.kheshariSale === 0){ %>
+                <% }else{ %>
+                <%= row.kheshariSale %> <br><br>
+                <% } %>
+                <%if (row.felonSale === 0){ %>
+                <% }else{ %>
+                <%= row.felonSale %> <br><br>
+                <% } %>
+                <%if (row.arohorSale === 0){ %>
+                    <% }else{ %>
+                    <%= row.arohorSale %> <br><br>
+                    <% } %>
+                    <%if (row.shorishaSale === 0){ %>
+                        <% }else{ %>
+                        <%= row.shorishaSale %> <br><br>
+                        <% } %>
+                        <%if (row.tilSale === 0){ %>
+                            <% }else{ %>
+                            <%= row.tilSale %> <br><br>
+                            <% } %>
+                <%if (row.soyabeanSale === 0){ %>
+                <% }else{ %>
+                <%= row.soyabeanSale %> <br><br>
+                <% } %>
+                <%if (row.chinabadamSale === 0){ %>
+                <% }else{ %>
+                <%= row.chinabadamSale %> <br><br>
+                <% } %>
+                <%if (row.sunflowerSale === 0){ %>
+                <% }else{ %>
+                <%= row.sunflowerSale %> <br><br>
+                <% } %>
+                <%if (row.onionSale === 0){ %>
+                <% }else{ %>
+                <%= row.onionSale %> <br><br>
+                <% } %>
+                <%if (row.roshunSale === 0){ %>
+                <% }else{ %>
+                <%= row.roshunSale %> <br><br>
+                <% } %>
+                <%if (row.holudSale === 0){ %>
+                    <% }else{ %>
+                    <%= row.holudSale %> <br><br>
+                    <% } %>
+                <%if (row.morichSale === 0){ %>
+                <% }else{ %>
+                <%= row.morichSale %> <br><br>
+                <% } %>
+                <%if (row.adaSale === 0){ %>
+                    <% }else{ %>
+                    <%= row.adaSale %> <br><br>
+                    <% } %>
+                <%if (row.dhoniaSale === 0){ %>
+                <% }else{ %>
+                <%= row.dhoniaSale %> <br><br>
+                <% } %>
+                <%if (row.kalojiraSale === 0){ %>
+                <% }else{ %>
+                <%= row.kalojiraSale %> <br><br>
+                <% } %>
+            </td>
+
+            <td><%= row.comment %></td>
+                    
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<% }else{ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>উপজেলার নাম</th>
+            <th>এসএমই'র নাম</th>
+        <th>অগ্রাধিকার প্রদর্শনীর নাম</th>
+        <th>বিকল্প প্রদর্শনীর নাম</th>
+        <th>এসএমই'ভূক্ত ইউনিয়নে অগ্রাধিকার ফসলের আবাদী এলাকা(হে.)</th>
+        <th>মন্তব্য</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td colspan="10">No data Found</td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>

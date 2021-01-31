@@ -1,0 +1,191 @@
+<%if (records.length >0){ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+    <thead>
+    <tr>
+        <th>এসএমই'র নাম</th>
+        <th>অগ্রাধিকার প্রদর্শনীর নাম</th>
+        <th>বিকল্প প্রদর্শনীর নাম</th>
+        <th>এসএমই'ভূক্ত ইউনিয়নে অগ্রাধিকার ফসলের আবাদী এলাকা(হে.)</th>
+        <th>মন্তব্য</th>
+
+    </tr>
+    </thead>
+    <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td><%= row.name %></td><td>
+                <%if (row.moshur === 0){ %>
+                <% }else{ %>
+                    মসুর, <%= row.moshur %>টি <br><br>
+                <% } %>
+                <%if (row.mug === 0){ %>
+                <% }else{ %>
+                    মুগ, <%= row.mug %>টি <br><br>
+                <% } %>                                      
+                <%if (row.mashkolai === 0){ %>
+                    <% }else{ %>
+                        মাসকলাই, <%= row.mashkolai %>টি <br><br>
+                    <% } %>
+                <%if (row.kheshari === 0){ %>
+                <% }else{ %>
+                    খেসারি, <%= row.kheshari %>টি <br><br>
+                <% } %>
+                <%if (row.felon === 0){ %>
+                <% }else{ %>
+                    ফেলন, <%= row.felon %>টি <br><br>
+                <% } %>
+                <%if (row.arohor === 0){ %>
+                <% }else{ %>
+                    অড়হর, <%= row.arohor %>টি <br><br>
+                <% } %>
+                <%if (row.shorisha === 0){ %>
+                <% }else{ %>
+                    সরিষা, <%= row.shorisha %>টি <br><br>
+                <% } %>    
+                <%if (row.til === 0){ %>
+                <% }else{ %>
+                    তিল, <%= row.til %>টি <br><br>
+                <% } %>
+                <%if (row.soyabean === 0){ %>
+                <% }else{ %>
+                সয়াবিন, <%= row.soyabean %>টি <br><br>
+                <% } %>
+                <%if (row.chinabadam === 0){ %>
+                <% }else{ %>
+                    চিনাবাদাম, <%= row.chinabadam %>টি <br><br>
+                <% } %>
+                <%if (row.sunflower === 0){ %>
+                <% }else{ %>
+                    সূর্যমুখী, <%= row.sunflower %>টি <br><br>
+                <% } %>
+                <%if (row.onion === 0){ %>
+                <% }else{ %>
+                    পেঁয়াজ, <%= row.onion %>টি <br><br>
+                <% } %>
+                <%if (row.roshun === 0){ %>
+                <% }else{ %>
+                    রসুন, <%= row.roshun %>টি <br><br>
+                <% } %>
+                <%if (row.holud === 0){ %>
+                    <% }else{ %>
+                        হলুদ, <%= row.holud %>টি <br><br>
+                    <% } %>
+                <%if (row.morich === 0){ %>
+                <% }else{ %>
+                    মরিচ, <%= row.morich %>টি <br><br>
+                <% } %>
+                <%if (row.ada === 0){ %>
+                    <% }else{ %>
+                        আদা, <%= row.ada %>টি <br><br>
+                    <% } %>
+                <%if (row.dhonia === 0){ %>
+                <% }else{ %>
+                    ধনিয়া, <%= row.dhonia %>টি <br><br>
+                <% } %>
+                <%if (row.kalojira === 0){ %>
+                <% }else{ %>
+                    কালোজিরা, <%= row.kalojira %>টি <br><br>
+                <% } %>
+
+                </td><td><%= row.bikolpo %></td><td>
+
+                <%if (row.moshurAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.moshurAbadi %> <br><br>
+                <% } %>
+                <%if (row.mugAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.mugAbadi %> <br><br>
+                <% } %>
+                <%if (row.mashkolaiAbadi === 0){ %>
+                    <% }else{ %>
+                    <%= row.mashkolaiAbadi %> <br><br>
+                    <% } %>
+                <%if (row.kheshariAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.kheshariAbadi %> <br><br>
+                <% } %>
+                <%if (row.felonAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.felonAbadi %> <br><br>
+                <% } %>
+                <%if (row.arohorAbadi === 0){ %>
+                    <% }else{ %>
+                    <%= row.arohorAbadi %> <br><br>
+                    <% } %>
+                    <%if (row.shorishaAbadi === 0){ %>
+                        <% }else{ %>
+                        <%= row.shorishaAbadi %> <br><br>
+                        <% } %>
+                        <%if (row.tilAbadi === 0){ %>
+                            <% }else{ %>
+                            <%= row.tilAbadi %> <br><br>
+                            <% } %>
+                <%if (row.soyabeanAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.soyabeanAbadi %> <br><br>
+                <% } %>
+                <%if (row.chinabadamAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.chinabadamAbadi %> <br><br>
+                <% } %>
+                <%if (row.sunflowerAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.sunflowerAbadi %> <br><br>
+                <% } %>
+                <%if (row.onionAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.onionAbadi %> <br><br>
+                <% } %>
+                <%if (row.roshunAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.roshunAbadi %> <br><br>
+                <% } %>
+                <%if (row.holudAbadi === 0){ %>
+                    <% }else{ %>
+                    <%= row.holudAbadi %> <br><br>
+                    <% } %>
+                <%if (row.morichAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.morichAbadi %> <br><br>
+                <% } %>
+                <%if (row.adaAbadi === 0){ %>
+                    <% }else{ %>
+                    <%= row.adaAbadi %> <br><br>
+                    <% } %>
+                <%if (row.dhoniaAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.dhoniaAbadi %> <br><br>
+                <% } %>
+                <%if (row.kalojiraAbadi === 0){ %>
+                <% }else{ %>
+                <%= row.kalojiraAbadi %> <br><br>
+                <% } %>
+
+
+            </td><td><%= row.comment %></td>
+                    
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+<% }else{ %>
+    <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+        <thead>
+        <tr>
+            <th>এসএমই'র নাম</th>
+        <th>অগ্রাধিকার প্রদর্শনীর নাম</th>
+        <th>বিকল্প প্রদর্শনীর নাম</th>
+        <th>এসএমই'ভূক্ত ইউনিয়নে অগ্রাধিকার ফসলের আবাদী এলাকা(হে.)</th>
+        <th>মন্তব্য</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% records.forEach(function(row){ %>
+            <tr>
+                <td colspan="10">No data Found</td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+<% } %>

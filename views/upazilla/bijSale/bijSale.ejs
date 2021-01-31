@@ -1,0 +1,179 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper" >
+            <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+                <%- include('../../includes/sidebar')-%>
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-md-10">
+                                <h1 class="text-center"><%= title %></h1>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="year">Choose a year:</label>
+
+                                <select id="year" name="year">
+                                    <option value="2017">২০১৭-১৮</option>
+                                    <option value="2018">২০১৮-১৯</option>
+                                    <option value="2019">২০১৯-২০</option>
+                                    <option value="2020" selected>২০২০-২১</option>
+                                    <option value="2021">২০২১-২২</option>
+                                    <option value="2022">২০২২-২৩</option>
+                                    <option value="2023">২০২৩-২৪</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-12">
+                                <a href="/upazilla/bijSaleForm" class="btn btn-success btn-group-sm ">কৃষক প্রশিক্ষণ তথ্য ফর্ম</a>
+                            </div>
+
+                        </div>
+
+                        <div class="table-responsive" id="output"></div>
+
+                        <input type="button" id="btnExport" value="Download PDF" />
+                        <button onclick="exportToExcel('tblexportData', 'প্রশিক্ষণপ্রাপ্ত কৃষকের তথ্য')" class="btn btn-success">Export Table Data To Excel File</button>
+
+
+                        <div id="output"></div>
+        <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+<%- include('../../includes/footer')-%>
+<script>
+    $(document).ready(function(){
+      $('.dropdown a.test').on("click", function(e){
+        $(this).next('ul').toggle();
+        e.stopPropagation();
+        e.preventDefault();
+      });
+    });
+</script>
+<script type="text/javascript">
+    $("body").on("click", "#btnExport", function () {
+        html2canvas($('.page-wrap')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 650
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("farmer-details.pdf");
+            }
+        });
+    }); 
+</script>
+<script type="text/javascript">
+    function exportToExcel(tableID, filename = ''){
+        var downloadurl;
+        var dataFileType = 'application/vnd.ms-excel';
+        var tableSelect = document.getElementById(tableID);
+        var tableHTMLData = tableSelect.outerHTML.replace(/ /g, '%20');
+        
+        // Specify file name
+        filename = filename?filename+'.xls':'export_excel_data.xls';
+        
+        // Create download link element
+        downloadurl = document.createElement("a");
+        
+        document.body.appendChild(downloadurl);
+        
+        if(navigator.msSaveOrOpenBlob){
+            var blob = new Blob(['\ufeff', tableHTMLData], {
+                type: dataFileType
+            });
+            navigator.msSaveOrOpenBlob( blob, filename);
+        }else{
+            // Create a link to the file
+            downloadurl.href = 'data:' + dataFileType + ', ' + tableHTMLData;
+        
+            // Setting the file name
+            downloadurl.download = filename;
+            
+            //triggering the function
+            downloadurl.click();
+        }
+    }
+     
+</script>
+<script type="text/javascript">
+
+   
+    $("body").on("click", "#btnExport", function () {
+        html2canvas($('#tblCustomers')[0], {
+            onrendered: function (canvas) {
+                var data = canvas.toDataURL();
+                var docDefinition = {
+                    content: [{
+                        image: data,
+                        width: 650
+                    }]
+                };
+                pdfMake.createPdf(docDefinition).download("farmer-details.pdf");
+            }
+        });
+    });
+
+    $("#wrapper").load( "no url rn",function() {
+        
+        var year = $('#year').val();
+        $.ajax({
+            type: "POST",
+            url: "/upazilla/bijSaleYear",
+            data: {year: year},
+            datatype: "json",
+            beforeSend: function() {
+                // setting a timeout
+                $('#loading').show();
+                $('#output').hide();
+
+            },
+            success: function (data) {
+                $('#output').html(data);
+                $('#tblCustomers').DataTable();
+            },
+            complete: function() {
+                $('#loading').hide();
+                $('#output').show();
+            }
+        });
+    });
+
+    $('#year').on("change",function () {
+        var year = $('#year').val();
+        $.ajax({
+            type: "POST",
+            url: "/upazilla/bijSaleYear",
+            data: {year: year},
+            datatype: "json",
+            beforeSend: function() {
+                // setting a timeout
+                $('#loading').show();
+                $('#output').hide();
+            },
+            success: function (data) {
+                $('#output').html(data);
+                $('#tblCustomers').DataTable();
+            },
+            complete: function() {
+                $('#loading').hide();
+                $('#output').show();
+            }
+        });
+    });
+
+    $(document).ready(function() {
+        $('#tblCustomers').DataTable();
+    } );
+
+    
+
+</script>

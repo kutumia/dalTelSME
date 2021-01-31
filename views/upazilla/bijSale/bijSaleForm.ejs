@@ -1,0 +1,424 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>উপজেলার তথ্য ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/upazilla/bijSaleFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+                                                             
+                                    <div class="form-group">
+                                        <label for="number" class="col-md-3 control-label">মোট এসএমইর সংখ্যাঃ</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="number" placeholder="মোট এসএমইর সংখ্যাঃ">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="moshur" class="col control-label">মসুর এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="moshur" placeholder="মসুর এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="moshurAmount" class="col control-label">মসুর এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="moshurAmount" placeholder="মসুর এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="moshurSale" class="col control-label">মসুর এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="moshurSale" placeholder="মসুর এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="moshurBlock" class="col control-label">মসুর এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="moshurBlock" placeholder="মসুর এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="mug" class="col control-label">মুগ এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="mug" placeholder="মুগ এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mugAmount" class="col control-label">মুগ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="mugAmount" placeholder="মুগ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mugSale" class="col control-label">মুগ এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="mugSale" placeholder="মুগ এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mugBlock" class="col control-label">মুগ এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="mugBlock" placeholder="মুগ এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="mashkolai" class="col control-label">মাসকলাই এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="mashkolai" placeholder="মাসকলাই এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mashkolaiAmount" class="col control-label">মাসকলাই এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="mashkolaiAmount" placeholder="মাসকলাই এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mashkolaiSale" class="col control-label">মাসকলাই এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="mashkolaiSale" placeholder="মাসকলাই এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="mashkolaiBlock" class="col control-label">মাসকলাই এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="mashkolaiBlock" placeholder="মাসকলাই এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="kheshari" class="col control-label">খেসারি এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="kheshari" placeholder="খেসারি এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kheshariAmount" class="col control-label">খেসারি এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="kheshariAmount" placeholder="খেসারি এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kheshariSale" class="col control-label">খেসারি এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="kheshariSale" placeholder="খেসারি এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kheshariBlock" class="col control-label">খেসারি এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="kheshariBlock" placeholder="খেসারি এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="felon" class="col control-label">ফেলন এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="felon" placeholder="ফেলন এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="felonAmount" class="col control-label">ফেলন এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="felonAmount" placeholder="ফেলন এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="felonSale" class="col control-label">ফেলন এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="felonSale" placeholder="ফেলন এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="felonBlock" class="col control-label">ফেলন এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="felonBlock" placeholder="ফেলন এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="arohor" class="col control-label">অড়হর এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="arohor" placeholder="অড়হর এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="arohorAmount" class="col control-label">অড়হর এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="arohorAmount" placeholder="অড়হর এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="arohorSale" class="col control-label">অড়হর এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="arohorSale" placeholder="অড়হর এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="arohorBlock" class="col control-label">অড়হর এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="arohorBlock" placeholder="অড়হর এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="shorisha" class="col control-label">সরিষা এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="shorisha" placeholder="সরিষা এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="shorishaAmount" class="col control-label">সরিষা এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="shorishaAmount" placeholder="সরিষা এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="shorishaSale" class="col control-label">সরিষা এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="shorishaSale" placeholder="সরিষা এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="shorishaBlock" class="col control-label">সরিষা এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="shorishaBlock" placeholder="সরিষা এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="til" class="col control-label">তিল এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="til" placeholder="তিল এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="tilAmount" class="col control-label">তিল এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="tilAmount" placeholder="তিল এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="tilSale" class="col control-label">তিল এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="tilSale" placeholder="তিল এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="tilBlock" class="col control-label">তিল এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="tilBlock" placeholder="তিল এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="soyabean" class="col control-label">সয়াবিন এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="soyabean" placeholder="সয়াবিন এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="soyabeanAmount" class="col control-label">সয়াবিন এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="soyabeanAmount" placeholder="সয়াবিন এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="soyabeanSale" class="col control-label">সয়াবিন এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="soyabeanSale" placeholder="সয়াবিন এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="soyabeanBlock" class="col control-label">সয়াবিন এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="soyabeanBlock" placeholder="সয়াবিন এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="chinabadam" class="col control-label">চিনাবাদাম এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="chinabadam" placeholder="চিনাবাদাম এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="chinabadamAmount" class="col control-label">চিনাবাদাম এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="chinabadamAmount" placeholder="চিনাবাদাম এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="chinabadamSale" class="col control-label">চিনাবাদাম এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="chinabadamSale" placeholder="চিনাবাদাম এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="chinabadamBlock" class="col control-label">চিনাবাদাম এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="chinabadamBlock" placeholder="চিনাবাদাম এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="sunflower" class="col control-label">সূর্যমুখী এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="sunflower" placeholder="সূর্যমুখী এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="sunflowerAmount" class="col control-label">সূর্যমুখী এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="sunflowerAmount" placeholder="সূর্যমুখী এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="sunflowerSale" class="col control-label">সূর্যমুখী এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="sunflowerSale" placeholder="সূর্যমুখী এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="sunflowerBlock" class="col control-label">সূর্যমুখী এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="sunflowerBlock" placeholder="সূর্যমুখী এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="onion" class="col control-label">পেঁয়াজ এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="onion" placeholder="পেঁয়াজ এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="onionAmount" class="col control-label">পেঁয়াজ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="onionAmount" placeholder="পেঁয়াজ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="onionSale" class="col control-label">পেঁয়াজ এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="onionSale" placeholder="পেঁয়াজ এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="onionBlock" class="col control-label">পেঁয়াজ এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="onionBlock" placeholder="পেঁয়াজ এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="roshun" class="col control-label">রসুন এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="roshun" placeholder="রসুন এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="roshunAmount" class="col control-label">রসুন এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="roshunAmount" placeholder="রসুন এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="roshunSale" class="col control-label">রসুন এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="roshunSale" placeholder="রসুন এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="roshunBlock" class="col control-label">রসুন এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="roshunBlock" placeholder="রসুন এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="holud" class="col control-label">হলুদ এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="holud" placeholder="হলুদ এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="holudAmount" class="col control-label">হলুদ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="holudAmount" placeholder="হলুদ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="holudSale" class="col control-label">হলুদ এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="holudSale" placeholder="হলুদ এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="holudBlock" class="col control-label">হলুদ এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="holudBlock" placeholder="হলুদ এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="morich" class="col control-label">মরিচ এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="morich" placeholder="মরিচ এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="morichAmount" class="col control-label">মরিচ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="morichAmount" placeholder="মরিচ এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="morichSale" class="col control-label">মরিচ এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="morichSale" placeholder="মরিচ এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="morichBlock" class="col control-label">মরিচ এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="morichBlock" placeholder="মরিচ এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="ada" class="col control-label">আদা এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="ada" placeholder="আদা এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="adaAmount" class="col control-label">আদা এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="adaAmount" placeholder="আদা এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="adaSale" class="col control-label">আদা এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="adaSale" placeholder="আদা এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="adaBlock" class="col control-label">আদা এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="adaBlock" placeholder="আদা এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="dhonia" class="col control-label">ধনিয়া এর জাতের নাম</label>
+                                        <input type="text" class="form-control" name="dhonia" placeholder="ধনিয়া এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="dhoniaAmount" class="col control-label">ধনিয়া এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="dhoniaAmount" placeholder="ধনিয়া এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="dhoniaSale" class="col control-label">ধনিয়া এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="dhoniaSale" placeholder="ধনিয়া এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="dhoniaBlock" class="col control-label">ধনিয়া এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="dhoniaBlock" placeholder="ধনিয়া এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+                                    <div class="form-row">
+                                        <div class="col">
+                                        <label for="kalojira" class="col control-label">কালোজিরা এর জাতের নাম</label>
+                                        <input type="number" class="form-control" name="kalojira" placeholder="কালোজিরা এর জাতের নাম">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kalojiraAmount" class="col control-label">কালোজিরা এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)</label>
+                                        <input type="number" class="form-control" name="kalojiraAmount" placeholder="কালোজিরা এর বিক্রয়কৃত বীজের পরিমাণ (কেজি)">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kalojiraSale" class="col control-label">কালোজিরা এর বিক্রয়কৃত বীজের মোট মূল্য</label>
+                                        <input type="number" class="form-control" name="kalojiraSale" placeholder="কালোজিরা এর বিক্রয়কৃত বীজের মোট মূল্য">
+                                        </div>
+                                        <div class="col">
+                                        <label for="kalojiraBlock" class="col control-label">কালোজিরা এর মোট ব্লক প্রদর্শনীর সংখ্যা</label>
+                                        <input type="number" class="form-control" name="kalojiraBlock" placeholder="কালোজিরা এর মোট ব্লক প্রদর্শনীর সংখ্যা">
+                                        </div>
+                                    </div> 
+
+
+
+
+                                    <div class="form-group">
+                                        <label for="comment" class="col-md-3 control-label">মন্তব্য</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="comment" placeholder="মন্তব্য">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="year">বছর :</label>
+                                        <select id="year" name="year" required>
+                                            <option value="2017">২০১৭-১৮</option>
+                                            <option value="2018">২০১৮-১৯</option>
+                                            <option value="2019">২০১৯-২০</option>
+                                            <option value="2020">২০২০-২১</option>
+                                            <option value="2021">২০২১-২২</option>
+                                            <option value="2022">২০২২-২৩</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                        <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                    
+                                    
+                                    
+                                        <input type="number" class="form-control" name="dd" placeholder="id" value="<%= upazillas.dd_id %>">
+                                        
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

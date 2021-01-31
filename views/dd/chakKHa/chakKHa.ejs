@@ -1,0 +1,407 @@
+<%- include('../../includes/header')-%>
+        <div id="wrapper" class="wrapper" >
+            <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+                <%- include('../../includes/sidebar')-%>
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="row clearfix">
+                            <div class="col-md-10">
+                                <h1 class="text-center"><%= title %></h1>
+                            </div>
+                            
+                        </div>
+
+                        
+                        <%if (upazillas.length >0){ %>
+                            <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                            <thead>
+                            <tr>
+                                <th>উপজেলার নাম</th>
+                                <th>এসএমই'র সংখ্যা</th>
+                                <th>ফসলের নাম</th>
+                                <th>প্রদর্শনীর সংখ্যা</th>
+                                <th>অগ্রাধিকার ফসলের আবাদী এলাকা(হে.)</th>
+                                <th>মন্তব্য</th>
+                        
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <% var sumLength=0;%> 
+                                <% var sum=0;%> 
+                                <% var sumAbadi=0;%>  
+                                <% upazillas.forEach(function(row){ %>
+                                                                      
+                                    <tr>
+                                        <td><%= row.upazilla %></td> 
+                                        <td>
+                                        <%if (row.id === chakKat.upazilla_id){ %>
+                                            <%= chakKas.length %>
+                                            <% sumLength=sumLength+chakKas.length %>
+                                            <% }else{ %>
+                                                0
+                                            <% } %>
+                                        </td> 
+
+                                        
+                                        <%if (row.id === chakKat.upazilla_id){ %>
+                                            <% var sumMoshur=0;%>
+                                            <% var sumMug=0;%>
+                                            <% var sumMashkolai=0;%>
+                                            <% var sumKheshari=0;%>
+                                            <% var sumFelon=0;%>
+                                            <% var sumArohor=0;%>
+                                            <% var sumShorisha=0;%>
+                                            <% var sumTil=0;%>
+                                            <% var sumSoyabean=0;%>
+                                            <% var sumChinabadam=0;%>
+                                            <% var sumSunflower=0;%>
+                                            <% var sumOnion=0;%>
+                                            <% var sumRoshun=0;%>
+                                            <% var sumHolud=0;%>
+                                            <% var sumMorich=0;%>
+                                            <% var sumAda=0;%>
+                                            <% var sumDhonia=0;%>
+                                            <% var sumKalojira=0;%>
+                                            
+                                            <% var sumMoshurAbadi=0;%>
+                                            <% var sumMugAbadi=0;%>
+                                            <% var sumMashkolaiAbadi=0;%>
+                                            <% var sumKheshariAbadi=0;%>
+                                            <% var sumFelonAbadi=0;%>
+                                            <% var sumArohorAbadi=0;%>
+                                            <% var sumShorishaAbadi=0;%>
+                                            <% var sumTilAbadi=0;%>
+                                            <% var sumSoyabeanAbadi=0;%>
+                                            <% var sumChinabadamAbadi=0;%>
+                                            <% var sumSunflowerAbadi=0;%>
+                                            <% var sumOnionAbadi=0;%>
+                                            <% var sumRoshunAbadi=0;%>
+                                            <% var sumHoludAbadi=0;%>
+                                            <% var sumMorichAbadi=0;%>
+                                            <% var sumAdaAbadi=0;%>
+                                            <% var sumDhoniaAbadi=0;%>
+                                            <% var sumKalojiraAbadi=0;%>
+                    
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMoshur=sumMoshur+chakKas[i].moshur}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMug=sumMug+chakKas[i].mug}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMashkolai=sumMashkolai+chakKas[i].mashkolai}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumKheshari=sumKheshari+chakKas[i].kheshari}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumFelon=sumFelon+chakKas[i].felon}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumArohor=sumArohor+chakKas[i].arohor}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumShorisha=sumShorisha+chakKas[i].shorisha}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumTil=sumTil+chakKas[i].til}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumSoyabean=sumSoyabean+chakKas[i].soyabean}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumChinabadam=sumChinabadam+chakKas[i].chinabadam}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumSunflower=sumSunflower+chakKas[i].sunflower}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumOnion=sumOnion+chakKas[i].onion}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumRoshun=sumRoshun+chakKas[i].roshun}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumHolud=sumHolud+chakKas[i].holud}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMorich=sumMorich+chakKas[i].morich}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumAda=sumAda+chakKas[i].ada}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumDhonia=sumDhonia+chakKas[i].dhonia}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumKalojira=sumKalojira+chakKas[i].kalojira}; %>
+
+                                           
+
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMoshurAbadi=sumMoshurAbadi+chakKas[i].moshurAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMugAbadi=sumMugAbadi+chakKas[i].mugAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMashkolaiAbadi=sumMashkolaiAbadi+chakKas[i].mashkolaiAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumKheshariAbadi=sumKheshariAbadi+chakKas[i].kheshariAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumFelonAbadi=sumFelonAbadi+chakKas[i].felonAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumArohorAbadi=sumArohorAbadi+chakKas[i].arohorAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumShorishaAbadi=sumShorishaAbadi+chakKas[i].shorishaAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumTilAbadi=sumTilAbadi+chakKas[i].tilAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumSoyabeanAbadi=sumSoyabeanAbadi+chakKas[i].soyabeanAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumChinabadamAbadi=sumChinabadamAbadi+chakKas[i].chinabadamAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumSunflowerAbadi=sumSunflowerAbadi+chakKas[i].sunflowerAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumOnionAbadi=sumOnionAbadi+chakKas[i].onionAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumRoshunAbadi=sumRoshunAbadi+chakKas[i].roshunAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumHoludAbadi=sumHoludAbadi+chakKas[i].holudAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumMorichAbadi=sumMorichAbadi+chakKas[i].morichAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumAdaAbadi=sumAdaAbadi+chakKas[i].adaAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumDhoniaAbadi=sumDhoniaAbadi+chakKas[i].dhoniaAbadi}; %>
+                                            <% for(var i=0;i<chakKas.length;i++){ sumKalojiraAbadi=sumKalojiraAbadi+chakKas[i].kalojiraAbadi}; %>
+                                           
+                                                <%  sum=sumMoshur+sumMug+sumMashkolai+sumKheshari+sumFelon+sumArohor+sumShorisha+sumTil+sumSoyabean+sumChinabadam+sumSunflower+sumOnion+sumRoshun+sumHolud+sumMorich+sumAda+sumDhonia+sumKalojira;%>
+                                                <%  sumAbadi=sumMoshurAbadi+sumMugAbadi+sumMashkolaiAbadi+sumKheshariAbadi+sumFelonAbadi+sumArohorAbadi+sumShorishaAbadi+sumTilAbadi+sumSoyabeanAbadi+sumChinabadamAbadi+sumSunflowerAbadi+sumOnionAbadi+sumRoshunAbadi+sumHoludAbadi+sumMorichAbadi+sumAdaAbadi+sumDhoniaAbadi+sumKalojiraAbadi;%>
+    
+
+                                            <td>
+                                                <%if (sumMoshur === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        মসুর <hr>
+                                                    <% } %>
+                                                <%if (sumMug === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        মুগ <hr>
+                                                    <% } %>
+                                                <%if (sumMashkolai === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        মাসকলাই <hr>
+                                                    <% } %>
+                                                <%if (sumKheshari === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        খেসারি <hr>
+                                                    <% } %>
+                                                <%if (sumFelon === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        ফেলন <hr>
+                                                    <% } %>
+                                                <%if (sumArohor === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        অড়হর <hr>
+                                                    <% } %>
+                                                <%if (sumShorisha === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        সরিষা <hr>
+                                                    <% } %>
+                                                <%if (sumTil === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        তিল <hr>
+                                                    <% } %>
+                                                <%if (sumSoyabean === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        সয়াবিন <hr>
+                                                    <% } %>
+                                                <%if (sumChinabadam === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        চিনাবাদাম <hr>
+                                                    <% } %>
+                                                <%if (sumSunflower === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        সূর্যমুখী <hr>
+                                                    <% } %>
+                                                <%if (sumOnion === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        পেঁয়াজ <hr>
+                                                    <% } %>
+                                                <%if (sumRoshun === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        রসুন <hr>
+                                                    <% } %>
+                                                <%if (sumHolud === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        হলুদ <hr>
+                                                    <% } %>
+                                                <%if (sumMorich === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        ্মরিচ <hr>
+                                                    <% } %>
+                                                <%if (sumAda === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        আদা <hr>
+                                                    <% } %>
+                                                <%if (sumDhonia === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        ধনিয়া <hr>
+                                                    <% } %>
+                                                <%if (sumKalojira === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        কালোজিরা <hr>
+                                                    <% } %>
+                                            </td>
+                                            
+                                            <td>
+                                                <%if (sumMoshur === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMoshur %> <hr>
+                                                    <% } %>
+                                                <%if (sumMug === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMug %> <hr>
+                                                    <% } %>
+                                                <%if (sumMashkolai === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMashkolai %> <hr>
+                                                    <% } %>
+                                                <%if (sumKheshari === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumKheshari %> <hr>
+                                                    <% } %>
+                                                <%if (sumFelon === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumFelon %> <hr>
+                                                    <% } %>
+                                                <%if (sumArohor === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumArohor %> <hr>
+                                                    <% } %>
+                                                <%if (sumShorisha === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumShorisha %> <hr>
+                                                    <% } %>
+                                                <%if (sumTil === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumTil %> <hr>
+                                                    <% } %>
+                                                <%if (sumSoyabean === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumSoyabean %> <hr>
+                                                    <% } %>
+                                                <%if (sumChinabadam === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumChinabadam %> <hr>
+                                                    <% } %>
+                                                <%if (sumSunflower === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumSunflower %> <hr>
+                                                    <% } %>
+                                                <%if (sumOnion === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumOnion %> <hr>
+                                                    <% } %>
+                                                <%if (sumRoshun === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumRoshun %> <hr>
+                                                    <% } %>
+                                                <%if (sumHolud === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumHolud %> <hr>
+                                                    <% } %>
+                                                <%if (sumMorich === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMorich %> <hr>
+                                                    <% } %>
+                                                <%if (sumAda === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumAda %> <hr>
+                                                    <% } %>
+                                                <%if (sumDhonia === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumDhonia %> <hr>
+                                                    <% } %>
+                                                <%if (sumKalojira === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumKalojira %> <hr>
+                                                    <% } %>
+                                            </td>
+
+                                            <td>
+                                                <%if (sumMoshurAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMoshurAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumMugAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMugAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumMashkolaiAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMashkolaiAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumKheshariAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumKheshariAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumFelonAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumFelonAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumArohorAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumArohorAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumShorishaAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumShorishaAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumTilAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumTilAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumSoyabeanAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumSoyabeanAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumChinabadamAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumChinabadamAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumSunflowerAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumSunflowerAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumOnionAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumOnionAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumRoshunAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumRoshunAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumHoludAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumHoludAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumMorichAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumMorichAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumAdaAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumAdaAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumDhoniaAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumDhoniaAbadi %> <hr>
+                                                    <% } %>
+                                                <%if (sumKalojiraAbadi === 0){ %>                                                   
+                                                    <% }else{ %>
+                                                        <%= sumKalojiraAbadi %> <hr>
+                                                    <% } %>
+                                            </td>
+
+
+                                            <% }else{ %>
+                                            <td>-</td>
+                                            <td>-</td> 
+                                            <td>-</td> 
+                                            <% } %>
+                                        
+                                            <td></td> 
+
+                                       
+                                    </tr>
+                                <% }) %>
+                                <tr>
+                                    <td>জেলার মোট এসএমই'র সংখ্যা</td>
+                                    <td><%= sumLength%></td>
+                                    <td>জেলার মোট প্রদর্শনীর সংখ্যাঃ-</td>
+                                    <td><%= sum%></td>
+                                    <td><%= sumAbadi %></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <% }else{ %>
+                            <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                                <thead>
+                                <tr>
+                                    <th>উপজেলার নাম</th>
+                                    <th>মুছুন</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% upazillas.forEach(function(row){ %>
+                                    <tr>
+                                        <td colspan="10">No data Found</td>
+                                    </tr>
+                                <% }) %>
+                                </tbody>
+                            </table>
+                        <% } %>
+
+                        <input type="button" id="btnExport" value="Download PDF" />
+
+                        <div id="output"></div>
+        <!--                    <div id="loading" class="loading"><img src="{{ asset('assets/img/icon/loading.gif') }}" alt=""></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+   
+<%- include('../../includes/footer')-%>
+
