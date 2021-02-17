@@ -14,8 +14,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <!-- <h6>চারা উৎপাদন</h6>
-                                                <h4>৯০,০০০</h4> -->
+                                                <h6><%= dds.district %> জেলার মোট এসএমইর সংখ্যাঃ</h6>
+                                                <h4><%= records.length %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -31,8 +31,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <!-- <h6>চারা বিতরণ</h6>
-                                                <h4>৫০,০০০ </h4> -->
+                                                <h6>বীজ ডিলার হিসেবে নিবন্ধিত এসএমইর সংখ্যাঃ</h6>
+                                                <h4><%= sumregis %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -48,8 +48,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <!-- <h6>চারা সংরক্ষণ/মজুদ</h6>
-                                                <h4>৪০,০০০</h4> -->
+                                                <h6>রেজিস্ট্রেশনের জন্য আবেদনকৃত এসএমইর সংখ্যাঃ</h6>
+                                                <h4><%= sumDealers %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -64,8 +64,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <!-- <h6>রাজস্ব আয়</h6>
-                                                <h4>৮০০০০০০ টাকা</h4> -->
+                                                <h6>রেজিস্ট্রেশনের জন্য উদ্যোগ নেয়নি এসএমইর সংখ্যাঃ</h6>
+                                                <h4><%= sumNonDealers %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -77,7 +77,98 @@
                             </div>
                         </div>
                 </div>
+               
+                <div class="row clearfix">
+                    <%if (upazillas.length >0){ %>
+                            <div class="col-md-4">
+                                <label for="upazilla">উপজেলা :</label>
+                                <select id="upazilla" name="upazilla">
+                                    <option value="">উপজেলা বাছুন:</option>
+                                        <% upazillas.forEach(function(row){ %>
+                                            <option value="<%= row.id %>"><%= row.upazilla %></option>
+                                        <% }) %>
+                                    </select>
+                            </div>
+                        <% } %>
+                    </div>
+
+                <div class="table-responsive" id="output">
+                    
+                </div>
+            
+            
+            
             </div>
         </div>
         
         <%- include('../includes/footer')-%>
+
+        <script>
+        
+            $(document).ready(function(){
+                
+              $('.dropdown a.test').on("click", function(e){
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+              });
+            });
+        </script>
+        
+        <script type="text/javascript">
+           
+        
+            $("#wrapper").load( "no url rn",function() {                
+                var upazilla = $('#upazilla').val();
+                $.ajax({
+                    type: "POST",
+                    url: "/dd/dashboardFilter",
+                    data: {upazilla:upazilla},
+                    datatype: "json",
+                    beforeSend: function() {
+                        // setting a timeout
+                        $('#loading').show();
+                        $('#output').hide();
+        
+                    },
+                    success: function (data) {
+                        $('#output').html(data);
+                        $('#tblCustomers').DataTable();
+                    },
+                    complete: function() {
+                        $('#loading').hide();
+                        $('#output').show();
+                    }
+                });
+            });
+        
+            $('#upazilla').on("change",function () {
+                var upazilla = $('#upazilla').val();
+                $.ajax({
+                    type: "POST",
+                    url: "/dd/dashboardFilter",
+                    data: {upazilla:upazilla},
+                    datatype: "json",
+                    beforeSend: function() {
+                        // setting a timeout
+                        $('#loading').show();
+                        $('#output').hide();
+                    },
+                    success: function (data) {
+                        $('#output').html(data);
+                        $('#tblCustomers').DataTable();
+                    },
+                    complete: function() {
+                        $('#loading').hide();
+                        $('#output').show();
+                    }
+                });
+            });
+        
+            $(document).ready(function() {
+                $('#tblCustomers').DataTable();
+            } );
+        
+            
+        
+        </script>

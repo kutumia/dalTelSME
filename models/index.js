@@ -24,6 +24,7 @@ db.dd = require("./dd.model.js")(sequelize, Sequelize);
 db.upazilla = require("./upazilla.model.js")(sequelize, Sequelize);
 db.chakKa = require("./chakKa.model.js")(sequelize, Sequelize);
 db.bijSale = require("./bijSale.model.js")(sequelize, Sequelize);
+db.dalSme = require("./dalSme.model.js")(sequelize, Sequelize);
 
 
 module.exports = db;

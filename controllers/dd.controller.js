@@ -5,6 +5,7 @@ const ad = db.ad;
 const upazilla = db.upazilla;
 const chakKa = db.chakKa;
 const bijSale = db.bijSale;
+const dalSme = db.dalSme;
 
 const jwt= require('jsonwebtoken');
 const bcrypt= require('bcryptjs'); 
@@ -84,8 +85,45 @@ module.exports.ddloginpost=async(req,res)=>{
 };
 
 module.exports.ddDashboard = async(req,res) => {
-    console.log("dddashboard",res.locals.type);
-    res.render('dd/dashboard', { title: 'ডাল,তেল ও মসলা বীজ উৎপাদন সংরক্ষণ ও বিতরণ (৩য় পর্যায়) প্রকল্প',msg:'Welcome' });
+    try{
+        var dds=await dd.findOne({where: {id: req.session.user_id}});
+        var data=await dalSme.findAll({where: {dd_id: req.session.user_id}});
+        console.log("data",data.length,req.session.user_id)
+        var upazillas=await upazilla.findAll({where: {dd_id: dds.id}});
+        var sumregi=0;
+        var sumDealer=0;
+        var sumNonDealer=0;
+        data.forEach(function(row){ 
+            if (row.regi === ""){ }
+            else{sumregi=sumregi+1;};
+            if (row.uddog === "Yes"){ 
+                sumDealer=sumDealer+1; 
+               }       
+            else if(row.uddog === "No"){ 
+                sumNonDealer=sumNonDealer+1;
+            }
+    });
+    
+        res.render('dd/dashboard', { title: 'ডাল,তেল ও মসলা বীজ উৎপাদন সংরক্ষণ ও বিতরণ (৩য় পর্যায়) প্রকল্প',msg:'Welcome',dds:dds,records:data,sumNonDealers:sumNonDealer,sumDealers:sumDealer,sumregis:sumregi,upazillas:upazillas });
+        }
+        catch (err) {
+            console.log(err);
+        }
+};
+module.exports.dashboardFilter=async(req,res)=>{
+    try{
+        var data=await dalSme.findAll({where: {dd_id: req.session.user_id,upazilla_id:req.body.upazilla}});
+        console.log("dekhi toh",data,req.body.upazilla)
+    res.render('dd/dashboardTable', { title: 'ডাল,তেল ও মসলা বীজ উৎপাদন সংরক্ষণ ও বিতরণ (৩য় পর্যায়) প্রকল্প',msg:'Welcome',records:data},function(err, html) {
+        console.log(html);
+        res.send(html);
+    });
+        }
+
+    catch (err) {
+            console.log(err);
+        }
+
 };
 //logIn controller end
 

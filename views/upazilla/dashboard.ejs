@@ -14,8 +14,8 @@
                                     <div class="widget-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
-                                                <h6>উপজেলার মোট এসএমইর সংখ্যাঃ</h6>
-                                                <h4>৯০,০০০</h4>
+                                                <h6><%= upazillas.upazilla %>  উপজেলার মোট এসএমইর সংখ্যাঃ</h6>
+                                                <h4><%= records.length %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -32,7 +32,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>বীজ ডিলার হিসেবে নিবন্ধিত এসএমইর সংখ্যাঃ</h6>
-                                                <h4>৫০,০০০ </h4>
+                                                <h4><%= sumregis %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -49,7 +49,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>রেজিস্ট্রেশনের জন্য আবেদনকৃত এসএমইর সংখ্যাঃ</h6>
-                                                <h4>৪০,০০০</h4>
+                                                <h4><%= sumDealers %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -65,7 +65,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>রেজিস্ট্রেশনের জন্য উদ্যোগ নেয়নি এসএমইর সংখ্যাঃ</h6>
-                                                <h4>৮০০০০০০ টাকা</h4>
+                                                <h4><%= sumNonDealers %></h4>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-award"></i>
@@ -77,8 +77,69 @@
                             </div>
                         </div>
                 </div>
-            
+                <div class="row mb-2">
+                    <div class="col-md-12">
+                        <a href="/upazilla/dalSmeForm" class="btn btn-success btn-group-sm ">উপজেলার এসএমই'র তথ্য ফর্ম</a>
+                    </div>
+
+                </div>
                
+            
+                <div class="table-responsive" id="output">
+                    <%if (records.length >0){ %>
+                        <table class="table table-bordered table-striped" id="output" cellspacing="0" cellpadding="0">
+                        <thead>
+                        <tr>
+                            <th>ক্রমিক নং</th>
+                            <th>এসএমই'র নাম</th>
+                            <th>পিতার নাম</th>
+                            <th>ফোন নাম্বার</th>
+                            <th>ঠিকানা</th>
+                            <th>বীজ ডিলার হিসেবে নিবন্ধিত হলে রেজিস্ট্রেশন নাম্বার</th>
+                            <th>মুছুন</th>
+                    
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <% records.forEach(function(row,index){ %>
+                                <tr>
+                                    <td><%= index+1 %></td>
+                                    <td><%= row.name %></td>
+                                    <td><%= row.fname %></td>
+                                    <td><%= row.mobile %></td>   
+                                    <td><%= row.address %></td>
+                                    <td><%= row.regi %></td>
+                                        <td><a class="btn btn-primary btn-xs" href="/edit/<%= row.id %>"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger btn-xs" href="/upazilla/dalSmeDelete/<%= row.id %>"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                    <% }else{ %>
+                        <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                            <thead>
+                            <tr>
+                                <th>এসএমই'র নাম</th>
+                                <th>পিতার নাম</th>
+                                <th>ফোন নাম্বার</th>
+                                <th>ঠিকানা</th>
+                                <th>বীজ ডিলার হিসেবে নিবন্ধিত হলে রেজিস্ট্রেশন নাম্বার</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% records.forEach(function(row){ %>
+                                <tr>
+                                    <td colspan="10">No data Found</td>
+                                </tr>
+                            <% }) %>
+                            </tbody>
+                        </table>
+                    <% } %>
+                </div>
+            
+            
+            
             </div>
         </div>
         

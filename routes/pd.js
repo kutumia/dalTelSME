@@ -3,10 +3,12 @@ const router = express.Router();
 // const { Router } = require("express");
 const app=express();
 
-const {pdsignup,pdsignuppost,pdlogin,pdloginpost,pdDashboard,chakKa,chakKaFilter,chakKHa,chakKHaFilter,chakKaDistrictFilter,bijSale,bijSaleFilter,sale,saleFilter} = require('../controllers/pd.controller');
+const {pdsignup,pdsignuppost,pdlogin,pdloginpost,pdDashboard,chakKa,chakKaFilter,chakKHa,dashboardFilter,dashboardDistrictFilter,chakKHaFilter,chakKaDistrictFilter,bijSale,bijSaleFilter,sale,saleFilter} = require('../controllers/pd.controller');
 router.get('/login',pdlogin);
 router.post('/logins',pdloginpost);
 router.get('/dashboard',pdDashboard);
+router.post('/dashboardFilter',dashboardFilter);
+router.post('/dashboardDistrictFilter',dashboardDistrictFilter);
 
 router.get('/signup',pdsignup);
 router.post('/signups',pdsignuppost);

@@ -21,7 +21,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: Date.now() + (30 * 86400 * 1000*10000)  }}))
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

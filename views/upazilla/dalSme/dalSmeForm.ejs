@@ -1,0 +1,95 @@
+<%- include('../../includes/header')-%>
+        <div class="wrapper">
+          <%- include('../../includes/topbar')-%>
+            <div class="page-wrap">
+              <%- include('../../includes/sidebar')-%>
+              <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                    <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h2>উপজেলার এসএমই'র তথ্য ফর্ম</h2></div>
+                                <p><%
+                                if(success !=''){ %>
+                                <%= success %>
+                                    <% } %>
+                                </p>
+                                </div>  
+                            <div class="panel-body" >
+                                <form action="/upazilla/dalSmeFormPost" id="FieldTrialForm" class="form-horizontal" method="post"  role="form">
+                                    <div id="signupalert" style="display:none" class="alert alert-danger">
+                                        <p>Error:</p>
+                                        <span></span>
+                                    </div>
+                                                             
+                                    <div class="form-group">
+                                        <label for="name" class="col-md-3 control-label">এসএসই'র নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="name" placeholder="এসএসই'র নাম">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="fname" class="col-md-3 control-label">পিতার নাম</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="fname" placeholder="পিতার নাম">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="address" class="col-md-3 control-label">ঠিকানা</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="address" placeholder="ঠিকানা">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="mobile" class="col-md-3 control-label">ফোন নাম্বার</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="mobile" placeholder="ফোন নাম্বার">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="regi" class="col-md-3 control-label">বীজ ডিলার হিসেবে নিবন্ধিত হলে রেজিস্ট্রেশন নাম্বার</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="regi" placeholder="বীজ ডিলার হিসেবে নিবন্ধিত হলে রেজিস্ট্রেশন নাম্বার">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="uddog">বীজ ডিলার হিসেবে নিবন্ধিত না হলে নিবন্ধনের জন্য আবেদন করেছে কি?:</label>
+                                        <select id="uddog" name="uddog">
+                                            <option value="">বাছুন</option>
+                                            <option value="Yes">করেছে</option>
+                                            <option value="No">করেনি</option>
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                        <input type="hidden" class="form-control" name="user_id" placeholder="id" value="<%= user_id %>">
+                                                                        
+                                        <input type="hidden" class="form-control" name="dd" placeholder="id" value="<%= upazillas.dd_id %>">
+                                        
+                                    
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="submit" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                        
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('../../includes/footer')-%>

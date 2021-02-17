@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 // const { Router } = require("express");
 const app=express();
-const {ddsignup,ddsignuppost,ddlogin,ddloginpost,ddDashboard,chakKHa,chakKaFilter,chakKa,bijSale,bijSaleFilter} = require('../controllers/dd.controller');
+const {ddsignup,ddsignuppost,ddlogin,ddloginpost,ddDashboard,chakKHa,chakKaFilter,chakKa,bijSale,bijSaleFilter,dashboardFilter} = require('../controllers/dd.controller');
 router.get('/login',ddlogin);
 router.post('/logins',ddloginpost);
 router.get('/dashboard',ddDashboard);
-
+router.post('/dashboardFilter',dashboardFilter);
 
 router.get('/signup',ddsignup);
 router.post('/signups',ddsignuppost);

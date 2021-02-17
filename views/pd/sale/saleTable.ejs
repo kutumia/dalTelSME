@@ -25,7 +25,6 @@
         <th>টাকা</th>
         <th>সূর্যমুখী (কেজি) </th>
         <th>টাকা</th>
-        
         <th>পেঁয়াজ (কেজি) </th>
         <th>টাকা</th>
         <th>রসুন (কেজি) </th>
@@ -40,9 +39,6 @@
         <th>টাকা</th>
         <th>কালোজিরা (কেজি) </th>
         <th>টাকা</th>
-        
-       
-
     </tr>
     </thead>
     <tbody>
@@ -80,7 +76,6 @@
             <% var sumAdaAmount=0;%>
             <% var sumDhoniaAmount=0;%>
             <% var sumKalojiraAmount=0;%>
-            
             <% var sumMoshurSale=0;%>
             <% var sumMugSale=0;%>
             <% var sumMashkolaiSale=0;%>
@@ -100,6 +95,8 @@
             <% var sumDhoniaSale=0;%>
             <% var sumKalojiraSale=0;%>
 
+            <% console.log("sumMoshurAmount",sumMoshurAmount);%>
+            
             <% sumMoshurAmount=sumMoshurAmount+row[index].moshurAmount %>
             <%  sumMugAmount=sumMugAmount+row[index].mugAmount; %>
             <%  sumMashkolaiAmount=sumMashkolaiAmount+row[index].mashkolaiAmount; %>
@@ -313,9 +310,6 @@
                                 <%= sumOnionSale %> 
                             <% } %>
                             </td>
-
-
-
 
 
                         <td><%if (sumRoshunAmount === 0){ %>                                                   

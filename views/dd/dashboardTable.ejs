@@ -1,0 +1,48 @@
+
+        <%if (records.length >0){ %>
+            <table class="table table-bordered table-striped" id="output" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr>
+                <th>ক্রমিক নং</th>
+                <th>এসএমই'র নাম</th>
+                <th>পিতার নাম</th>
+                <th>ফোন নাম্বার</th>
+                <th>ঠিকানা</th>
+                <th>বীজ ডিলার হিসেবে নিবন্ধিত হলে রেজিস্ট্রেশন নাম্বার</th>
+        
+            </tr>
+            </thead>
+            <tbody>
+                <% records.forEach(function(row,index){ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= row.name %></td>
+                        <td><%= row.fname %></td>
+                        <td><%= row.mobile %></td>  
+                         <td><%= row.address %></td>
+                        <td><%= row.regi %></td>
+                            
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <% }else{ %>
+            <table class="table table-bordered table-striped" id="tblCustomers" cellspacing="0" cellpadding="0">
+                <thead>
+                <tr>
+                    <th>এসএমই'র নাম</th>
+                    <th>পিতার নাম</th>
+                    <th>ফোন নাম্বার</th>
+                    <th>ঠিকানা</th>
+                    <th>বীজ ডিলার হিসেবে নিবন্ধিত হলে রেজিস্ট্রেশন নাম্বার</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% records.forEach(function(row){ %>
+                    <tr>
+                        <td colspan="10">No data Found</td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
+<% } %>

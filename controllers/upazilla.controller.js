@@ -4,6 +4,7 @@ const dd = db.dd;
 const upazilla = db.upazilla;
 const chakKa = db.chakKa;
 const bijSale = db.bijSale;
+const dalSme = db.dalSme;
 
 
 const jwt= require('jsonwebtoken');
@@ -82,8 +83,28 @@ module.exports.upazillaloginpost=async(req,res)=>{
 };
 
 module.exports.upazillaDashboard = async(req,res) => {
-    console.log("upazilladashboard",res.locals.type);
-    res.render('upazilla/dashboard', { title: 'ডাল,তেল ও মসলা বীজ উৎপাদন সংরক্ষণ ও বিতরণ (৩য় পর্যায়) প্রকল্প',msg:'Welcome' });
+    try{
+        var upazillas=await upazilla.findOne({where: {id: req.session.user_id}});
+        var data=await dalSme.findAll({where: {upazilla_id: req.session.user_id}});
+    var sumregi=0;
+    var sumDealer=0;
+    var sumNonDealer=0;
+    data.forEach(function(row){ 
+        if (row.regi === ""){ }
+        else{sumregi=sumregi+1;};
+        if (row.uddog === "Yes"){ 
+            sumDealer=sumDealer+1; 
+           }       
+        else if(row.uddog === "No"){ 
+            sumNonDealer=sumNonDealer+1;
+        }
+});
+
+    res.render('upazilla/dashboard', { title: 'ডাল,তেল ও মসলা বীজ উৎপাদন সংরক্ষণ ও বিতরণ (৩য় পর্যায়) প্রকল্প',msg:'Welcome',upazillas:upazillas,records:data,sumNonDealers:sumNonDealer,sumDealers:sumDealer,sumregis:sumregi });
+    }
+    catch{
+        console.log(err);
+    }
 };
 //logIn controller end
 
@@ -542,6 +563,64 @@ module.exports.bijSaleEdit=async(req,res)=>{
 module.exports.bijSaleDelete=async(req,res)=>{
     
             res.redirect('/upazilla/bijSale');
+        
+  
+};
+//bijSale controller end
+
+//bijSale controller
+module.exports.dalSmeForm=async(req,res)=>{
+    var upazillass=await upazilla.findOne({
+        where: {id: req.session.user_id}
+    })
+    res.render('upazilla/dalSme/dalSmeForm', { title: 'ছকপত্রঃ- উপজেলার তথ্য',msg:'' ,success:'',upazillas:upazillass,user_id: req.session.user_id});
+};
+
+module.exports.dalSmeFormPost=async(req,res)=>{
+    var name= req.body.name;
+    var fname= req.body.fname;
+    var address= req.body.address;
+    var mobile= req.body.mobile;
+    var dealer= req.body.dealer;
+    var regi= req.body.regi;
+    var uddog= req.body.uddog;
+    var user_id =req.body.user_id;
+    var dd_id =req.body.dd;
+
+    await dalSme.create({
+        name: name,
+        fname:fname,
+        address:address,
+        mobile:mobile,
+        dealer:dealer,
+        regi:regi,
+        uddog:uddog,
+        upazilla_id:user_id,
+        dd_id:dd_id 
+    })   
+        
+        .then(data => {
+            res.redirect('/upazilla/dashboard');
+        }).catch(err => {
+            res.render('errorpage',err);
+        });
+  
+};
+module.exports.dalSmeEdit=async(req,res)=>{
+    var id=req.params.id;
+    console.log('id',id);
+    res.render('upazilla/dalSme/dalSmeForm', { title: 'ছকপত্রঃ- উপজেলার তথ্য',msg:'' ,success:'',user_id: req.session.user_id});
+};
+
+module.exports.dalSmeDelete=async(req,res)=>{
+    var dalSmeDelete = await dalSme.findByPk(req.params.id);
+    try {
+        dalSmeDelete.destroy();
+        res.redirect("/upazilla/dashboard");
+    }
+    catch{
+        res.render('errorpage',err);
+    }
         
   
 };
