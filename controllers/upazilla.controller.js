@@ -292,7 +292,7 @@ module.exports.chakKaFormPost=async(req,res)=>{
         .then(data => {
             res.redirect('/upazilla/chakKa');
         }).catch(err => {
-            res.render('errorpage',err);
+            console.log(err)
         });
   
 };
