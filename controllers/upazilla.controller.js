@@ -122,7 +122,7 @@ module.exports.upazillasignup=async(req,res)=>{
 };
 module.exports.upazillasignuppost=async(req,res)=>{
     try {
-        const{dds,uname,password,confirmPassword}=req.body;
+        const{dds,uname,upazillas,password,confirmPassword}=req.body;
         const ddata=await dd.findAll();
         const data = await upazilla.findAll({ where: {uname: uname} });
         
@@ -138,6 +138,7 @@ module.exports.upazillasignuppost=async(req,res)=>{
             try{
                 const createupazilla = await upazilla.create({
                     uname: uname,
+                    upazilla:upazillas,
                     password:hashedPassword,
                     dd_id:dds,
                     pd_id:1

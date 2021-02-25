@@ -133,7 +133,7 @@ module.exports.ddsignup=async(req,res)=>{
 };
 module.exports.ddsignuppost=async(req,res)=>{
     try {
-        const{ads,uname,password,confirmPassword}=req.body;
+        const{district,uname,password,confirmPassword}=req.body;
         const data = await dd.findAll({ where: {uname: uname} })
         if(data.length > 0){
             res.render('dd/signup',{title: 'ডাল,তেল ও মসলা বীজ উৎপাদন সংরক্ষণ ও বিতরণ (৩য় পর্যায়) প্রকল্প',msg:'ERROR: The dd is already enrolled!' })
@@ -146,6 +146,7 @@ module.exports.ddsignuppost=async(req,res)=>{
             console.log(hashedPassword);
             try{
                 const createdd = await dd.create({
+                    district:district,
                     uname: uname,
                     password:hashedPassword,
                     pd_id:1

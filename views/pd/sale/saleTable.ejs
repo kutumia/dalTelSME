@@ -47,17 +47,7 @@
     <tr>
         <td><%= rows.district %></td>
         <%if (records.length >0){ %>
-        <%
-            let index = null; 
-             records.forEach(function(row){ 
-                if (rows.id === row.dd_id){
-                    index = row.id
-                }
-             }) 
-             console.log("index",index);
-        %>
 
-        <%if (index !== null){ %>
             <% var sumMoshurAmount=0;%>
             <% var sumMugAmount=0;%>
             <% var sumMashkolaiAmount=0;%>
@@ -96,57 +86,61 @@
             <% var sumKalojiraSale=0;%>
 
             <% console.log("sumMoshurAmount",sumMoshurAmount);%>
+                <% console.log("sumMoshurSale",sumMoshurSale);%>
+                
+            <% records.forEach(function(row){ %>
+                <%if (row.dd_id === rows.id){ %>
+                    <% sumMoshurAmount=sumMoshurAmount+row.moshurAmount %>
+                    <%  sumMugAmount=sumMugAmount+row.mugAmount; %>
+                    <%  sumMashkolaiAmount=sumMashkolaiAmount+row.mashkolaiAmount; %>
+                    <% sumKheshariAmount=sumKheshariAmount+row.kheshariAmount; %>
+                    <% sumFelonAmount=sumFelonAmount+row.felonAmount; %>
+                    <% sumArohorAmount=sumArohorAmount+row.arohorAmount; %>
+                    <%  sumShorishaAmount=sumShorishaAmount+row.shorishaAmount; %>
+                    <%  sumTilAmount=sumTilAmount+row.tilAmount; %>
+                    <%  sumSoyabeanAmount=sumSoyabeanAmount+row.soyabeanAmount; %>
+                    <%  sumChinabadamAmount=sumChinabadamAmount+row.chinabadamAmount; %>
+                    <%  sumSunflowerAmount=sumSunflowerAmount+row.sunflowerAmount; %>
+                    <% sumOnionAmount=sumOnionAmount+row.onionAmount; %>
+                    <% sumRoshunAmount=sumRoshunAmount+row.roshunAmount; %>
+                    <%  sumHoludAmount=sumHoludAmount+row.holudAmount; %>
+                    <% sumMorichAmount=sumMorichAmount+row.morichAmount; %>
+                    <%  sumAdaAmount=sumAdaAmount+row.adaAmount; %>
+                    <%  sumDhoniaAmount=sumDhoniaAmount+row.dhoniaAmount; %>
+                    <%  sumKalojiraAmount=sumKalojiraAmount+row.kalojiraAmount; %>
+
             
-            <% sumMoshurAmount=sumMoshurAmount+row[index].moshurAmount %>
-            <%  sumMugAmount=sumMugAmount+row[index].mugAmount; %>
-            <%  sumMashkolaiAmount=sumMashkolaiAmount+row[index].mashkolaiAmount; %>
-            <% sumKheshariAmount=sumKheshariAmount+row[index].kheshariAmount; %>
-            <% sumFelonAmount=sumFelonAmount+row[index].felonAmount; %>
-            <% sumArohorAmount=sumArohorAmount+row[index].arohorAmount; %>
-            <%  sumShorishaAmount=sumShorishaAmount+row[index].shorishaAmount; %>
-            <%  sumTilAmount=sumTilAmount+row[index].tilAmount; %>
-            <%  sumSoyabeanAmount=sumSoyabeanAmount+row[index].soyabeanAmount; %>
-            <%  sumChinabadamAmount=sumChinabadamAmount+row[index].chinabadamAmount; %>
-            <%  sumSunflowerAmount=sumSunflowerAmount+row[index].sunflowerAmount; %>
-            <% sumOnionAmount=sumOnionAmount+row[index].onionAmount; %>
-            <% sumRoshunAmount=sumRoshunAmount+row[index].roshunAmount; %>
-            <%  sumHoludAmount=sumHoludAmount+row[index].holudAmount; %>
-            <% sumMorichAmount=sumMorichAmount+row[index].morichAmount; %>
-            <%  sumAdaAmount=sumAdaAmount+row[index].adaAmount; %>
-            <%  sumDhoniaAmount=sumDhoniaAmount+row[index].dhoniaAmount; %>
-            <%  sumKalojiraAmount=sumKalojiraAmount+row[index].kalojiraAmount; %>
 
+                    <% sumMoshurSale=sumMoshurSale+row.moshurSale %>
+                    <%  sumMugSale=sumMugSale+row.mugSale; %>
+                    <%  sumMashkolaiSale=sumMashkolaiSale+row.mashkolaiSale; %>
+                    <% sumKheshariSale=sumKheshariSale+row.kheshariSale; %>
+                    <% sumFelonSale=sumFelonSale+row.felonSale; %>
+                    <% sumArohorSale=sumArohorSale+row.arohorSale; %>
+                    <%  sumShorishaSale=sumShorishaSale+row.shorishaSale; %>
+                    <%  sumTilSale=sumTilSale+row.tilSale; %>
+                    <%  sumSoyabeanSale=sumSoyabeanSale+row.soyabeanSale; %>
+                    <%  sumChinabadamSale=sumChinabadamSale+row.chinabadamSale; %>
+                    <%  sumSunflowerSale=sumSunflowerSale+row.sunflowerSale; %>
+                    <% sumOnionSale=sumOnionSale+row.onionSale; %>
+                    <% sumRoshunSale=sumRoshunSale+row.roshunSale; %>
+                    <%  sumHoludSale=sumHoludSale+row.holudSale; %>
+                    <% sumMorichSale=sumMorichSale+row.morichSale; %>
+                    <%  sumAdaSale=sumAdaSale+row.adaSale; %>
+                    <%  sumDhoniaSale=sumDhoniaSale+row.dhoniaSale; %>
+                    <%  sumKalojiraSale=sumKalojiraSale+row.kalojiraSale; %>
            
-
-            <% sumMoshurSale=sumMoshurSale+row[index].moshurSale %>
-            <%  sumMugSale=sumMugSale+row[index].mugSale; %>
-            <%  sumMashkolaiSale=sumMashkolaiSale+row[index].mashkolaiSale; %>
-            <% sumKheshariSale=sumKheshariSale+row[index].kheshariSale; %>
-            <% sumFelonSale=sumFelonSale+row[index].felonSale; %>
-            <% sumArohorSale=sumArohorSale+row[index].arohorSale; %>
-            <%  sumShorishaSale=sumShorishaSale+row[index].shorishaSale; %>
-            <%  sumTilSale=sumTilSale+row[index].tilSale; %>
-            <%  sumSoyabeanSale=sumSoyabeanSale+row[index].soyabeanSale; %>
-            <%  sumChinabadamSale=sumChinabadamSale+row[index].chinabadamSale; %>
-            <%  sumSunflowerSale=sumSunflowerSale+row[index].sunflowerSale; %>
-            <% sumOnionSale=sumOnionSale+row[index].onionSale; %>
-            <% sumRoshunSale=sumRoshunSale+row[index].roshunSale; %>
-            <%  sumHoludSale=sumHoludSale+row[index].holudSale; %>
-            <% sumMorichSale=sumMorichSale+row[index].morichSale; %>
-            <%  sumAdaSale=sumAdaSale+row[index].adaSale; %>
-            <%  sumDhoniaSale=sumDhoniaSale+row[index].dhoniaSale; %>
-            <%  sumKalojiraSale=sumKalojiraSale+row[index].kalojiraSale; %>
-           
-                <%  sumAmount=sumMoshurAmount+sumMugAmount+sumMashkolaiAmount+sumKheshariAmount+sumFelonAmount+sumArohorAmount+sumShorishaAmount+sumTilAmount+sumSoyabeanAmount+sumChinabadamAmount+sumSunflowerAmount+sumOnionAmount+sumRoshunAmount+sumHoludAmount+sumMorichAmount+sumAdaAmount+sumDhoniaAmount+sumKalojiraAmount;%>
-                <%  sumSale=sumMoshurSale+sumMugSale+sumMashkolaiSale+sumKheshariSale+sumFelonSale+sumArohorSale+sumShorishaSale+sumTilSale+sumSoyabeanSale+sumChinabadamSale+sumSunflowerSale+sumOnionSale+sumRoshunSale+sumHoludSale+sumMorichSale+sumAdaSale+sumDhoniaSale+sumKalojiraSale;%>
-
+                    <%  sumAmount=sumMoshurAmount+sumMugAmount+sumMashkolaiAmount+sumKheshariAmount+sumFelonAmount+sumArohorAmount+sumShorishaAmount+sumTilAmount+sumSoyabeanAmount+sumChinabadamAmount+sumSunflowerAmount+sumOnionAmount+sumRoshunAmount+sumHoludAmount+sumMorichAmount+sumAdaAmount+sumDhoniaAmount+sumKalojiraAmount;%>
+                    <%  sumSale=sumMoshurSale+sumMugSale+sumMashkolaiSale+sumKheshariSale+sumFelonSale+sumArohorSale+sumShorishaSale+sumTilSale+sumSoyabeanSale+sumChinabadamSale+sumSunflowerSale+sumOnionSale+sumRoshunSale+sumHoludSale+sumMorichSale+sumAdaSale+sumDhoniaSale+sumKalojiraSale;%>
+                <% } %>
+            <% }) %>
                 <td>
                     <%if (sumMoshurAmount === 0){ %>    
                                 0                                       
-                        <% }else{ %>
+                    <% }else{ %>
                             <%= sumMoshurAmount %>
-                        <% } %>
-                    </td>
+                    <% } %>
+                </td>
                     <td>
                         <%if (sumMoshurSale === 0){ %>  
                             0                                                 
@@ -393,45 +387,7 @@
                         <% } %>
                         </td>
 
-                <% }else{ %>
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <td>-</td>
-                    <td>-</td> 
-                    <% } %>
-
+            
 
                     <% }else{ %>
                         <td>-</td>

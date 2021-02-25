@@ -62,10 +62,16 @@ app.use('/dd', ddRouter);
 
 
 const db = require("./models");
-db.sequelize.sync().catch(err=>console.log(err.message))
+db.sequelize.sync().catch((error) => console.log(error.message));
 
 db.sequelize.sync({ force: false }).then(() => {
   console.log("Drop and re-sync db.");
-}).catch(err=>console.log(err.message))
+}).catch(error=>console.log(error.message))
+
+const port = process.env.PORT || 8000;
+app.listen(port, function () {
+  console.log(`server running on port ${port}`);
+});
+
 
 module.exports = app;
